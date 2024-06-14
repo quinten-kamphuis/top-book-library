@@ -1,36 +1,4 @@
-const myLibrary = [
-    {
-        title: 'The Hobbit', 
-        author: 'J.R.R. Tolkien', 
-        pages: 295, 
-        read: false
-    },{
-        title: "To Kill a Mockingbird",
-        author: "Harper Lee",
-        pages: 324,
-        read: true
-    },{
-        title: "1984",
-        author: "George Orwell",
-        pages: 328,
-        read: false
-    },{
-        title: "Pride and Prejudice",
-        author: "Jane Austen",
-        pages: 279,
-        read: true
-    },{
-        title: "The Great Gatsby",
-        author: "F. Scott Fitzgerald",
-        pages: 180,
-        read: false
-    },{
-        title: "Moby-Dick",
-        author: "Herman Melville",
-        pages: 635,
-        read: false
-    }    
-];
+const tableContainer = document.querySelector('.table-container');
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -39,12 +7,32 @@ function Book(title, author, pages, read) {
     this.read = read;
 } 
 
+const myLibrary = [
+    new Book("The Hobbit", "J.R.R. Tolkien", 295, false),
+    new Book("To Kill a Mockingbird", "Harper Lee", 324, true),
+    new Book("1984", "George Orwell", 328, false),
+    new Book("Pride and Prejudice", "Jane Austen", 279, true),
+    new Book("The Great Gatsby", "F. Scott Fitzgerald", 180, false),
+    new Book("Moby-Dick", "Herman Melville", 635, false)
+];
+
 Book.prototype.info = function() {
     return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read ? 'has been read' : 'not read yet'}`
 };
 
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
-
-const addBookToLibrary = () => {
-
+Book.prototype.displayInTable = function() {
+    tableContainer.innerHTML += `<tr>
+        <td>${this.title}</td>
+        <td>${this.author}</td>
+        <td>${this.pages}</td>
+        <td>${this.read ? 'Yes' : 'No'}</td>
+    </tr>`;
 };
+    
+const addBookToLibrary = () => {
+    
+};
+
+myLibrary.forEach(book => {
+    book.displayInTable();
+});
