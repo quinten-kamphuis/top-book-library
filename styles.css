@@ -1,6 +1,19 @@
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 nav{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+nav button{
+   padding: 4px 10px;
+}
+
+#confirmBtn{
+    font-weight: 900;
 }
 
 table {
@@ -14,4 +27,8 @@ th, td {
 }
 th {
     background-color: #f2f2f2;
+}
+.delete-book{
+    height: 15px;
+    cursor: pointer;
 }

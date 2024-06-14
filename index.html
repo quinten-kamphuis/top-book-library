@@ -10,7 +10,24 @@
 <body>
     <nav>
         <h1>My Book Library</h1>
-        
+        <dialog id="addBookDialog">
+            <form>
+                <h3>Add Book:</h3>
+                <label for="title">Title: </label><input id="title" type="text" required>
+                <label for="author">Author: </label><input id="author" type="text" required>
+                <label for="pages">Pages: </label><input id="pages" type="number" required>
+                <fieldset>
+                    <legend>Read: </legend>
+                    <label for="read">Yes</label><input id="read" type="radio" name="read" required>
+                    <label for="not-read">No</label><input id="not-read" type="radio" name="read" required>
+                </fieldset>
+                <div>
+                    <button id="confirmBtn" value="default">Confirm</button>
+                    <button value="cancel" formmethod="dialog">Cancel</button>
+                </div>
+            </form>
+        </dialog>
+        <button onclick="addBookDialog.showModal()">Add book</button>
     </nav>
     <table>
         <thead>
@@ -19,6 +36,7 @@
                 <th>Author</th>
                 <th>Pages</th>
                 <th>Read</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody class="table-container">
