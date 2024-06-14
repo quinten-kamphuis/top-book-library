@@ -1,5 +1,6 @@
 body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0 2%;
 }
 
 nav{
@@ -12,7 +13,33 @@ nav button{
    padding: 4px 10px;
 }
 
-#confirmBtn{
+dialog{
+    top: -20%;
+}
+h3{
+    margin: 5px 0;
+}
+.text-fields div{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.text-fields input{
+    width: 60%;
+}
+fieldset{
+    border: none;
+    margin: 0;
+    padding: 5px;
+}
+.radio-selector{
+    display: flex;
+    justify-content: space-around;
+}
+form > div{
+    margin-top: 10px;
+}
+#confirm-button{
     font-weight: 900;
 }
 
@@ -30,5 +57,8 @@ th {
 }
 .delete-book{
     height: 15px;
+    cursor: pointer;
+}
+.read{
     cursor: pointer;
 }

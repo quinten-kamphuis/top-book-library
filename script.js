@@ -1,6 +1,7 @@
 const tableContainer = document.querySelector('.table-container');
 
-const confirmBtn = addBookDialog.querySelector("#confirmBtn");
+const confirmBtn = addBookDialog.querySelector("#confirm-button");
+const cancelBtn = addBookDialog.querySelector("#cancel-button");
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -27,8 +28,17 @@ Book.prototype.displayInTable = function() {
         <td>${this.title}</td>
         <td>${this.author}</td>
         <td>${this.pages}</td>
-        <td>${this.read ? 'Yes' : 'No'}</td>
+        <td class='read'>${this.read ? 'Yes' : 'No'}</td>
     </tr>`;
+};
+
+const addReadEvents = () => {
+    document.querySelectorAll(".read")
+    .forEach(btn => btn.addEventListener("click", (event) => {
+        const id = btn.parentElement.id;
+        myLibrary[id].read ? myLibrary[id].read = false : myLibrary[id].read = true;
+        displayAllBooks();
+}));
 };
 
 const addDeleteEvents = () => {
@@ -49,6 +59,7 @@ const displayAllBooks = () => {
         row.innerHTML += `<td><img class="delete-book" src="img/trash-alt-svgrepo-com.svg" height="30" alt="Trash Can"></td>`;
         tableContainer.appendChild(row);
     });
+    addReadEvents();
     addDeleteEvents();
 };
 
@@ -61,6 +72,22 @@ const addBookToLibrary = (title, author, pages, read) => {
 confirmBtn.addEventListener("click", (event) => {
     event.preventDefault();
     addBookToLibrary(title.value, author.value, pages.value, read.checked);
+    addBookDialog.close();
 });
 
+cancelBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    addBookDialog.close();
+    clearForm();
+});
+
+const clearForm = () => {
+    title.value = '';
+    author.value = '';
+    pages.value = '';
+    read.checked = false;
+    notRead.checked = false;
+}
+
 displayAllBooks();
+

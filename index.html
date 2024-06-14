@@ -13,17 +13,19 @@
         <dialog id="addBookDialog">
             <form>
                 <h3>Add Book:</h3>
-                <label for="title">Title: </label><input id="title" type="text" required>
-                <label for="author">Author: </label><input id="author" type="text" required>
-                <label for="pages">Pages: </label><input id="pages" type="number" required>
-                <fieldset>
+                <fieldset class="text-fields">
+                    <div><label for="title">Title: </label><input id="title" type="text" required></div>
+                    <div><label for="author">Author: </label><input id="author" type="text" required></div>
+                    <div><label for="pages">Pages: </label><input id="pages" type="number" required></div>
+                </fieldset>
+                <fieldset class="radio-selector">
                     <legend>Read: </legend>
-                    <label for="read">Yes</label><input id="read" type="radio" name="read" required>
-                    <label for="not-read">No</label><input id="not-read" type="radio" name="read" required>
+                    <div><label for="read">Yes</label><input id="read" type="radio" name="read" required></div>
+                    <div><label for="notRead">No</label><input id="notRead" type="radio" name="read" required></div>
                 </fieldset>
                 <div>
-                    <button id="confirmBtn" value="default">Confirm</button>
-                    <button value="cancel" formmethod="dialog">Cancel</button>
+                    <button id="confirm-button" value="default">Confirm</button>
+                    <button id="cancel-button" value="cancel" formmethod="dialog">Cancel</button>
                 </div>
             </form>
         </dialog>
