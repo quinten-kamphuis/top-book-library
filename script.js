@@ -69,10 +69,11 @@ const addBookToLibrary = (title, author, pages, read) => {
     displayAllBooks();
 };
 
-confirmBtn.addEventListener("click", (event) => {
+addBookDialog.addEventListener("submit", (event) => {
     event.preventDefault();
     addBookToLibrary(title.value, author.value, pages.value, read.checked);
     addBookDialog.close();
+    clearForm();
 });
 
 cancelBtn.addEventListener("click", (event) => {
